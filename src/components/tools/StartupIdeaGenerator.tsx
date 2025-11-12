@@ -43,3 +43,19 @@ const StartupIdeaGenerator: React.FC = () => {
         />
         <button type="submit" disabled={isLoading || !prompt.trim()} className="px-6 py-2 bg-cyan-600 rounded-lg font-semibold hover:bg-cyan-700 disabled:bg-gray-600 disabled:cursor-not-allowed transition-colors">
           {isLoading ? 'Ideating...' : 'Generate Ideas'}
+        </button>
+      </form>
+
+      {error && <p className="text-center text-red-400 mb-4">{error}</p>}
+
+      <div className="w-full min-h-[40vh] p-4 bg-[#0a0a1a]/50 border border-gray-700 rounded-lg overflow-y-auto">
+        {isLoading && <div className="flex justify-center items-center h-full"><Spinner /></div>}
+        {!isLoading && !ideas && <p className="text-gray-400 text-center">Your startup ideas will appear here.</p>}
+        {ideas && <p className="whitespace-pre-wrap">{ideas}</p>}
+      </div>
+    </div>
+  );
+};
+
+// FIX: Add missing default export to resolve import error.
+export default StartupIdeaGenerator;

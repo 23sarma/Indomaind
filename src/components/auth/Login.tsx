@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { User, AuthView } from '../../types';
 import IndomindLogo from '../ui/IndomindLogo';
@@ -29,7 +30,7 @@ const Login: React.FC<LoginProps> = ({ onLogin, setView }) => {
         <h1 className="text-3xl font-bold text-white mt-4">Welcome to Indomind</h1>
         <p className="text-gray-400">Sign in to access the future of AI</p>
       </div>
-      <form onSubmit={handleSubmit} className="space-y-6">
+      <form onSubmit={handleSubmit} className="space-y-4">
         {error && <p className="text-red-400 text-sm text-center">{error}</p>}
         <div>
           <label className="text-sm font-medium text-gray-300">Email / Mobile Number</label>
@@ -56,6 +57,19 @@ const Login: React.FC<LoginProps> = ({ onLogin, setView }) => {
           className="w-full py-3 bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-semibold rounded-lg hover:from-cyan-600 hover:to-blue-600 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-cyan-500/40"
         >
           Login
+        </button>
+        <div className="relative flex pt-2 items-center">
+            <div className="flex-grow border-t border-gray-700"></div>
+            <span className="flex-shrink mx-4 text-gray-400 text-xs uppercase">Or</span>
+            <div className="flex-grow border-t border-gray-700"></div>
+        </div>
+        <button
+            type="button"
+            onClick={() => onLogin({ email: 'guest@indomind.ai' })}
+            className="w-full py-3 bg-gray-700 text-white font-semibold rounded-lg hover:bg-gray-800 transition-all duration-300"
+            aria-label="Continue as a guest user"
+        >
+            Continue as Guest
         </button>
       </form>
       <div className="mt-6 text-center text-sm">

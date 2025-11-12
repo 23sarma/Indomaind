@@ -23,9 +23,12 @@ const SpeechToText: React.FC = () => {
 
     recognition.onresult = (event: any) => {
       let finalTranscript = '';
+      let interimTranscript = '';
       for (let i = event.resultIndex; i < event.results.length; ++i) {
         if (event.results[i].isFinal) {
           finalTranscript += event.results[i][0].transcript;
+        } else {
+          interimTranscript += event.results[i][0].transcript;
         }
       }
       setTranscript(prev => prev + finalTranscript);
@@ -36,6 +39,12 @@ const SpeechToText: React.FC = () => {
       setIsListening(false);
     };
     
+    recognition.onend = () => {
+        if (isListening) {
+             recognition.start(); // Keep listening if it was not manually stopped
+        }
+    };
+
     recognitionRef.current = recognition;
 
     return () => {
@@ -44,29 +53,18 @@ const SpeechToText: React.FC = () => {
   }, []);
   
    useEffect(() => {
-    if (!recognitionRef.current) {
-        return;
-    }
-    
-    // This effect handles the start/stop logic and ensures `onend` has the latest `isListening` state.
+    // This effect handles the start/stop logic based on the isListening state
+    // to avoid a stale closure issue with the onend callback.
     if (isListening) {
-      recognitionRef.current.start();
+      recognitionRef.current?.start();
     } else {
-      recognitionRef.current.stop();
+      recognitionRef.current?.stop();
     }
-
-    recognitionRef.current.onend = () => {
-        if (isListening) {
-             recognitionRef.current.start(); // Keep listening if it was not manually stopped
-        }
-    };
   }, [isListening]);
 
 
   const handleToggleListen = () => {
-    if (!isListening) {
-      setTranscript(''); // Clear previous transcript only when starting a new session
-    }
+    setTranscript(''); // Clear previous transcript on new start
     setIsListening(prevState => !prevState);
   };
 
