@@ -1,0 +1,7 @@
+{
+  "name": "Indomind",
+  "description": "Indomind is a visionary AI platform designed to be the world's most advanced AI system, featuring over 100 functional AI tools for chat, creative media, code, business, and more, with a futuristic, Indian-inspired interface.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
