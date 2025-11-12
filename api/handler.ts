@@ -1,4 +1,6 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
+// FIX: Import Buffer to make it available in the Node.js environment.
+import { Buffer } from 'buffer';
 import { GoogleGenAI, Operation, Modality, ChatMessage as GoogleChatMessage } from "@google/genai";
 import { ChatMessage } from '../src/types';
 

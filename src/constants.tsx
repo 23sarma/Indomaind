@@ -100,10 +100,13 @@ export const ALL_TOOLS: Tool[] = [
   createTool('voice_cloner', 'Voice Cloner', 'Synthesize speech in various vocal styles.', 'Audio & Music', Icons.VoiceIcon, VoiceCloner),
   createTool('text_to_speech', 'Text-to-Speech', 'Convert text into natural-sounding speech.', 'Audio & Music', Icons.TtsIcon, TextToSpeech),
   createTool('podcast_maker', 'AI Podcast Maker', 'Generate a script for a podcast episode on any topic.', 'Audio & Music', Icons.PodcastIcon, BusinessPlan),
-  createTool('sound_fx', 'Sound FX Generator', 'Generate sound effect descriptions for your projects.', 'Audio & Music', Icons.SoundFxIcon, StartupIdeaGenerator),
+  // FIX: Assigning incorrect component. Changed StartupIdeaGenerator to StudentTutor for better placeholder functionality.
+  createTool('sound_fx', 'Sound FX Generator', 'Generate sound effect descriptions for your projects.', 'Audio & Music', Icons.SoundFxIcon, StudentTutor),
   createTool('audio_mastering', 'AI Audio Mastering', 'Get suggestions for mastering your audio tracks.', 'Audio & Music', Icons.MasteringIcon, StudentTutor),
-  createTool('beat_composer', 'Beat Composer', 'Generate beat patterns and drum loops ideas.', 'Audio & Music', Icons.BeatIcon, StartupIdeaGenerator),
-  createTool('instrumental_generator', 'Instrumental Generator', 'Create concepts for instrumental background music.', 'Audio & Music', Icons.InstrumentalIcon, StartupIdeaGenerator),
+  // FIX: Assigning incorrect component. Changed StartupIdeaGenerator to StudentTutor for better placeholder functionality.
+  createTool('beat_composer', 'Beat Composer', 'Generate beat patterns and drum loops ideas.', 'Audio & Music', Icons.BeatIcon, StudentTutor),
+  // FIX: Assigning incorrect component. Changed StartupIdeaGenerator to StudentTutor for better placeholder functionality.
+  createTool('instrumental_generator', 'Instrumental Generator', 'Create concepts for instrumental background music.', 'Audio & Music', Icons.InstrumentalIcon, StudentTutor),
   createTool('voice_translator', 'Voice Translator', 'Translate spoken words from one language to another.', 'Audio & Music', Icons.TranslateIcon, TextToSpeech),
   createTool('emotion_voice_synthesizer', 'Emotion Voice Synthesizer', 'Generate speech with specific emotional tones.', 'Audio & Music', Icons.EmotionVoiceIcon, VoiceCloner),
 
