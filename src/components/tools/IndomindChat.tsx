@@ -89,15 +89,15 @@ const IndomindChat: React.FC<IndomindChatProps> = ({ addToHistory }) => {
     }
 
     const userMessage: ChatMessage = { role: 'user', text: prompt };
-    const newMessages = [...messages, userMessage];
-    setMessages(newMessages);
+    setMessages(prev => [...prev, userMessage]);
     addToHistory({ role: 'user', text: prompt });
     setIsLoading(true);
     setPrompt('');
 
     try {
       const systemInstruction = 'You are Indomind, a powerful and helpful AI assistant.';
-      const response = await sendChatMessage(prompt, newMessages, systemInstruction);
+      // Pass the state of `messages` *before* adding the new user prompt
+      const response = await sendChatMessage(prompt, messages, systemInstruction);
       const modelMessage: ChatMessage = { role: 'model', text: response.text };
       setMessages(prev => [...prev, modelMessage]);
       addToHistory({ role: 'model', text: response.text });
