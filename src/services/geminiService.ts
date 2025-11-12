@@ -1,4 +1,5 @@
-import { ChatMessage } from '../types';
+
+import { ChatMessage, Tool } from '../types';
 
 /**
  * A helper function to call our secure backend API.
@@ -35,7 +36,7 @@ export const generateText = async (prompt: string, systemInstruction?: string): 
         return data.text;
     } catch (error) {
         console.error("Error generating text:", error);
-        return "Sorry, I encountered an error while processing your request.";
+        throw error;
     }
 };
 
@@ -44,10 +45,15 @@ export const generateImage = async (prompt: string): Promise<string[]> => {
     return data.images;
 };
 
-export const sendChatMessage = async (prompt: string, history: ChatMessage[], systemInstruction?: string): Promise<{ text: string }> => {
-    const data = await callApi('chat', { prompt, history, systemInstruction });
+export const sendChatMessage = async (
+    prompt: string, 
+    history: ChatMessage[],
+    attachment: { name: string; data: string; mimeType: string } | null
+): Promise<{ text: string }> => {
+    const data = await callApi('chat', { prompt, history, attachment });
     return data;
 };
+
 
 export const generateVideo = async (prompt: string): Promise<string> => {
     const data = await callApi('generateVideo', { prompt });
@@ -57,4 +63,14 @@ export const generateVideo = async (prompt: string): Promise<string> => {
 export const generateSpeech = async (prompt: string): Promise<string> => {
     const data = await callApi('generateSpeech', { prompt });
     return data.base64Audio;
+};
+
+export const sendAdminCommand = async (
+    prompt: string,
+    history: any[],
+    tools: Tool[],
+    functionResponse?: any,
+): Promise<any> => {
+    const data = await callApi('adminChat', { prompt, history, tools, functionResponse });
+    return data;
 };

@@ -1,13 +1,14 @@
 import React from 'react';
-import { Tool, HistoryEntry } from '../../types';
+import { Tool, HistoryEntry, User } from '../../types';
 
 interface ToolContainerProps {
   tool: Tool;
   onBack: () => void;
   addToHistory: (entry: Omit<HistoryEntry, 'id' | 'timestamp'>) => void;
+  user: User;
 }
 
-const ToolContainer: React.FC<ToolContainerProps> = ({ tool, onBack, addToHistory }) => {
+const ToolContainer: React.FC<ToolContainerProps> = ({ tool, onBack, addToHistory, user }) => {
   const ToolComponent = tool.component;
 
   return (
@@ -23,7 +24,7 @@ const ToolContainer: React.FC<ToolContainerProps> = ({ tool, onBack, addToHistor
         <p className="text-gray-400 mt-2">{tool.description}</p>
       </div>
       <div className="bg-[#1a1a3a]/50 p-6 rounded-2xl border border-gray-800 shadow-xl">
-        {ToolComponent ? <ToolComponent addToHistory={addToHistory} /> : (
+        {ToolComponent ? <ToolComponent addToHistory={addToHistory} user={user} /> : (
             <div className="text-center py-8">
                 <h3 className="text-2xl font-bold text-cyan-400 mb-4">Under Development</h3>
                 <p className="text-gray-300">The Indomind core AI is currently calibrating this tool. It will be fully operational shortly. Thank you for your patience.</p>
