@@ -1,7 +1,5 @@
-
 import React, { useState, useRef, useEffect } from 'react';
-import { Chat } from "@google/genai";
-import { createChatSession } from '../../services/geminiService';
+import { sendChatMessage } from '../../services/geminiService';
 import { ChatMessage, HistoryEntry } from '../../types';
 import Spinner from '../ui/Spinner';
 
@@ -17,7 +15,6 @@ interface IndomindChatProps {
 }
 
 const IndomindChat: React.FC<IndomindChatProps> = ({ addToHistory }) => {
-  const [chatSession, setChatSession] = useState<Chat | null>(null);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [prompt, setPrompt] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -26,10 +23,6 @@ const IndomindChat: React.FC<IndomindChatProps> = ({ addToHistory }) => {
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
 
   const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
-
-  useEffect(() => {
-    setChatSession(createChatSession('You are Indomind, a powerful and helpful AI assistant.'));
-  }, []);
 
   useEffect(() => {
     if (!SpeechRecognition) {
@@ -89,13 +82,14 @@ const IndomindChat: React.FC<IndomindChatProps> = ({ addToHistory }) => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!prompt.trim() || !chatSession || isLoading) return;
+    if (!prompt.trim() || isLoading) return;
 
     if (isListening) {
       recognitionRef.current?.stop();
       setIsListening(false);
     }
 
+    const chatHistory = [...messages];
     const userMessage: ChatMessage = { role: 'user', text: prompt };
     setMessages(prev => [...prev, userMessage]);
     addToHistory({ role: 'user', text: prompt });
@@ -103,7 +97,8 @@ const IndomindChat: React.FC<IndomindChatProps> = ({ addToHistory }) => {
     setPrompt('');
 
     try {
-      const response = await chatSession.sendMessage({ message: prompt });
+      const systemInstruction = 'You are Indomind, a powerful and helpful AI assistant.';
+      const response = await sendChatMessage(prompt, chatHistory, systemInstruction);
       const modelMessage: ChatMessage = { role: 'model', text: response.text };
       setMessages(prev => [...prev, modelMessage]);
       addToHistory({ role: 'model', text: response.text });
