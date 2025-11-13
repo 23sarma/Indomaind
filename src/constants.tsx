@@ -1,36 +1,36 @@
 
 import React from 'react';
 import { Tool } from './types';
-import * as Icons from '/src/components/icons/toolIcons';
+import * as Icons from './components/icons/toolIcons.tsx';
 
 // --- Tool Components ---
-import IndomindChat from '/src/components/tools/IndomindChat';
-import ImageGenerator from '/src/components/tools/ImageGenerator';
-import KnowledgeSummarizer from '/src/components/tools/KnowledgeSummarizer';
-import CodeOptimizer from '/src/components/tools/CodeOptimizer';
-import WebsiteGenerator from '/src/components/tools/WebsiteGenerator';
-import VideoGenerator from '/src/components/tools/VideoGenerator';
-import SongGenerator from '/src/components/tools/SongGenerator';
-import ThreeDModelGenerator from '/src/components/tools/ThreeDModelGenerator';
-import VoiceCloner from '/src/components/tools/VoiceCloner';
-import TextToSpeech from '/src/components/tools/TextToSpeech';
-import SpeechToText from '/src/components/tools/SpeechToText';
-import AutoResearcher from '/src/components/tools/AutoResearcher';
-import WebDataSearch from '/src/components/tools/WebDataSearch';
-import DocumentReader from '/src/components/tools/DocumentReader';
-import AppBuilder from '/src/components/tools/AppBuilder';
-import BugFixer from '/src/components/tools/BugFixer';
-import StartupIdeaGenerator from '/src/components/tools/StartupIdeaGenerator';
-import BusinessPlan from '/src/components/tools/BusinessPlan';
-import SeoOptimizer from '/src/components/tools/SeoOptimizer';
-import StudentTutor from '/src/components/tools/StudentTutor';
-import MathSolver from '/src/components/tools/MathSolver';
-import FitnessPlanner from '/src/components/tools/FitnessPlanner';
-import DietPlanner from '/src/components/tools/DietPlanner';
-import HoroscopeGenerator from '/src/components/tools/HoroscopeGenerator';
-import DreamInterpreter from '/src/components/tools/DreamInterpreter';
-import NewsSummarizer from '/src/components/tools/NewsSummarizer';
-import OcrScanner from '/src/components/tools/OcrScanner';
+import IndomindChat from './components/tools/IndomindChat.tsx';
+import ImageGenerator from './components/tools/ImageGenerator.tsx';
+import KnowledgeSummarizer from './components/tools/KnowledgeSummarizer.tsx';
+import CodeOptimizer from './components/tools/CodeOptimizer.tsx';
+import WebsiteGenerator from './components/tools/WebsiteGenerator.tsx';
+import VideoGenerator from './components/tools/VideoGenerator.tsx';
+import SongGenerator from './components/tools/SongGenerator.tsx';
+import ThreeDModelGenerator from './components/tools/ThreeDModelGenerator.tsx';
+import VoiceCloner from './components/tools/VoiceCloner.tsx';
+import TextToSpeech from './components/tools/TextToSpeech.tsx';
+import SpeechToText from './components/tools/SpeechToText.tsx';
+import AutoResearcher from './components/tools/AutoResearcher.tsx';
+import WebDataSearch from './components/tools/WebDataSearch.tsx';
+import DocumentReader from './components/tools/DocumentReader.tsx';
+import AppBuilder from './components/tools/AppBuilder.tsx';
+import BugFixer from './components/tools/BugFixer.tsx';
+import StartupIdeaGenerator from './components/tools/StartupIdeaGenerator.tsx';
+import BusinessPlan from './components/tools/BusinessPlan.tsx';
+import SeoOptimizer from './components/tools/SeoOptimizer.tsx';
+import StudentTutor from './components/tools/StudentTutor.tsx';
+import MathSolver from './components/tools/MathSolver.tsx';
+import FitnessPlanner from './components/tools/FitnessPlanner.tsx';
+import DietPlanner from './components/tools/DietPlanner.tsx';
+import HoroscopeGenerator from './components/tools/HoroscopeGenerator.tsx';
+import DreamInterpreter from './components/tools/DreamInterpreter.tsx';
+import NewsSummarizer from './components/tools/NewsSummarizer.tsx';
+import OcrScanner from './components/tools/OcrScanner.tsx';
 
 // Helper for tools that are not yet custom-built but are active
 const createTool = (id: string, name: string, description: string, category: string, icon: React.ComponentType<{ className?: string }>, component: React.ComponentType<any>): Tool => ({
@@ -102,7 +102,7 @@ export const ALL_TOOLS: Tool[] = [
   createTool('text_to_speech', 'Text-to-Speech', 'Convert text into natural-sounding speech.', 'Audio & Music', Icons.TtsIcon, TextToSpeech),
   createTool('podcast_maker', 'AI Podcast Maker', 'Generate a script for a podcast episode on any topic.', 'Audio & Music', Icons.PodcastIcon, BusinessPlan),
   createTool('sound_fx', 'Sound FX Generator', 'Generate sound effect descriptions for your projects.', 'Audio & Music', Icons.SoundFxIcon, StartupIdeaGenerator),
-  createTool('audio_mastering', 'AI Audio Mastering', 'Get suggestions for mastering your audio tracks.', 'Audio & Music', Icons.MasteringIcon, StartupIdeaGenerator),
+  createTool('audio_mastering', 'AI Audio Mastering', 'Get suggestions for mastering your audio tracks.', 'Audio & Music', Icons.MasteringIcon, StudentTutor),
   createTool('beat_composer', 'Beat Composer', 'Generate beat patterns and drum loops ideas.', 'Audio & Music', Icons.BeatIcon, StartupIdeaGenerator),
   createTool('instrumental_generator', 'Instrumental Generator', 'Create concepts for instrumental background music.', 'Audio & Music', Icons.InstrumentalIcon, StartupIdeaGenerator),
   createTool('voice_translator', 'Voice Translator', 'Translate spoken words from one language to another.', 'Audio & Music', Icons.TranslateIcon, TextToSpeech),
