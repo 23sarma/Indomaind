@@ -1,36 +1,36 @@
 
 import React from 'react';
 import { Tool } from './types';
-import * as Icons from './components/icons/toolIcons.tsx';
+import * as Icons from './components/icons/toolIcons';
 
 // --- Tool Components ---
-import IndomindChat from './components/tools/IndomindChat.tsx';
-import ImageGenerator from './components/tools/ImageGenerator.tsx';
-import KnowledgeSummarizer from './components/tools/KnowledgeSummarizer.tsx';
-import CodeOptimizer from './components/tools/CodeOptimizer.tsx';
-import WebsiteGenerator from './components/tools/WebsiteGenerator.tsx';
-import VideoGenerator from './components/tools/VideoGenerator.tsx';
-import SongGenerator from './components/tools/SongGenerator.tsx';
-import ThreeDModelGenerator from './components/tools/ThreeDModelGenerator.tsx';
-import VoiceCloner from './components/tools/VoiceCloner.tsx';
-import TextToSpeech from './components/tools/TextToSpeech.tsx';
-import SpeechToText from './components/tools/SpeechToText.tsx';
-import AutoResearcher from './components/tools/AutoResearcher.tsx';
-import WebDataSearch from './components/tools/WebDataSearch.tsx';
-import DocumentReader from './components/tools/DocumentReader.tsx';
-import AppBuilder from './components/tools/AppBuilder.tsx';
-import BugFixer from './components/tools/BugFixer.tsx';
-import StartupIdeaGenerator from './components/tools/StartupIdeaGenerator.tsx';
-import BusinessPlan from './components/tools/BusinessPlan.tsx';
-import SeoOptimizer from './components/tools/SeoOptimizer.tsx';
-import StudentTutor from './components/tools/StudentTutor.tsx';
-import MathSolver from './components/tools/MathSolver.tsx';
-import FitnessPlanner from './components/tools/FitnessPlanner.tsx';
-import DietPlanner from './components/tools/DietPlanner.tsx';
-import HoroscopeGenerator from './components/tools/HoroscopeGenerator.tsx';
-import DreamInterpreter from './components/tools/DreamInterpreter.tsx';
-import NewsSummarizer from './components/tools/NewsSummarizer.tsx';
-import OcrScanner from './components/tools/OcrScanner.tsx';
+import IndomindChat from './components/tools/IndomindChat';
+import ImageGenerator from './components/tools/ImageGenerator';
+import KnowledgeSummarizer from './components/tools/KnowledgeSummarizer';
+import CodeOptimizer from './components/tools/CodeOptimizer';
+import WebsiteGenerator from './components/tools/WebsiteGenerator';
+import VideoGenerator from './components/tools/VideoGenerator';
+import SongGenerator from './components/tools/SongGenerator';
+import ThreeDModelGenerator from './components/tools/ThreeDModelGenerator';
+import VoiceCloner from './components/tools/VoiceCloner';
+import TextToSpeech from './components/tools/TextToSpeech';
+import SpeechToText from './components/tools/SpeechToText';
+import AutoResearcher from './components/tools/AutoResearcher';
+import WebDataSearch from './components/tools/WebDataSearch';
+import DocumentReader from './components/tools/DocumentReader';
+import AppBuilder from './components/tools/AppBuilder';
+import BugFixer from './components/tools/BugFixer';
+import StartupIdeaGenerator from './components/tools/StartupIdeaGenerator';
+import BusinessPlan from './components/tools/BusinessPlan';
+import SeoOptimizer from './components/tools/SeoOptimizer';
+import StudentTutor from './components/tools/StudentTutor';
+import MathSolver from './components/tools/MathSolver';
+import FitnessPlanner from './components/tools/FitnessPlanner';
+import DietPlanner from './components/tools/DietPlanner';
+import HoroscopeGenerator from './components/tools/HoroscopeGenerator';
+import DreamInterpreter from './components/tools/DreamInterpreter';
+import NewsSummarizer from './components/tools/NewsSummarizer';
+import OcrScanner from './components/tools/OcrScanner';
 
 // Helper for tools that are not yet custom-built but are active
 const createTool = (id: string, name: string, description: string, category: string, icon: React.ComponentType<{ className?: string }>, component: React.ComponentType<any>): Tool => ({
