@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { User, AuthView } from '../../types';
-import IndomindLogo from '../ui/IndomindLogo';
+import { User, AuthView } from '@/types';
+import IndomindLogo from '@/components/ui/IndomindLogo';
 
 interface AdminLoginProps {
   onLogin: (user: User, isAdmin: boolean) => void;

@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { generateText } from '@/services/geminiService';
 import Spinner from '@/components/ui/Spinner';
 
-const StartupIdeaGenerator: React.FC = () => {
+const DreamInterpreter: React.FC = () => {
   const [prompt, setPrompt] = useState('');
-  const [ideas, setIdeas] = useState('');
+  const [interpretation, setInterpretation] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -14,15 +14,16 @@ const StartupIdeaGenerator: React.FC = () => {
 
     setIsLoading(true);
     setError(null);
-    setIdeas('');
+    setInterpretation('');
 
     try {
-      const systemInstruction = `You are a creative venture capitalist. Based on the user's input, generate three unique startup ideas.
-      For each idea, provide a catchy name and a one-sentence concept.
-      Format the output as a numbered list.`;
-      const fullPrompt = `Generate startup ideas related to: ${prompt}`;
+      const systemInstruction = `You are a creative and insightful dream interpreter.
+      Analyze the user's dream based on common symbolism, but present the interpretation in an engaging and narrative way.
+      Do not claim to be a psychologist. Frame it as a fun exploration of possibilities.
+      Start with "Here's one possible interpretation of your dream:"`;
+      const fullPrompt = `My dream was about: ${prompt}`;
       const result = await generateText(fullPrompt, systemInstruction);
-      setIdeas(result);
+      setInterpretation(result);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'An unknown error occurred.');
     } finally {
@@ -37,12 +38,12 @@ const StartupIdeaGenerator: React.FC = () => {
           type="text"
           value={prompt}
           onChange={(e) => setPrompt(e.target.value)}
-          placeholder="e.g., sustainable fashion, AI in education"
+          placeholder="e.g., I was flying over a city made of chocolate"
           className="flex-grow px-4 py-2 bg-[#0a0a1a] border border-gray-600 rounded-lg focus:ring-cyan-500 focus:border-cyan-500 text-white"
           disabled={isLoading}
         />
         <button type="submit" disabled={isLoading || !prompt.trim()} className="px-6 py-2 bg-cyan-600 rounded-lg font-semibold hover:bg-cyan-700 disabled:bg-gray-600 disabled:cursor-not-allowed transition-colors">
-          {isLoading ? 'Ideating...' : 'Generate Ideas'}
+          {isLoading ? 'Interpreting...' : 'Interpret Dream'}
         </button>
       </form>
 
@@ -50,12 +51,11 @@ const StartupIdeaGenerator: React.FC = () => {
 
       <div className="w-full min-h-[40vh] p-4 bg-[#0a0a1a]/50 border border-gray-700 rounded-lg overflow-y-auto">
         {isLoading && <div className="flex justify-center items-center h-full"><Spinner /></div>}
-        {!isLoading && !ideas && <p className="text-gray-400 text-center">Your startup ideas will appear here.</p>}
-        {ideas && <p className="whitespace-pre-wrap">{ideas}</p>}
+        {!isLoading && !interpretation && <p className="text-gray-400 text-center">Your dream interpretation will appear here.</p>}
+        {interpretation && <p className="whitespace-pre-wrap">{interpretation}</p>}
       </div>
     </div>
   );
 };
 
-// FIX: Add missing default export to resolve import error.
-export default StartupIdeaGenerator;
+export default DreamInterpreter;

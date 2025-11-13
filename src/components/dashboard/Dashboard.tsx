@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { User, Tool, HistoryEntry } from '../../types';
-import ToolCard from './ToolCard';
-import ToolContainer from '../tools/ToolContainer';
-import Header from './Header';
+import { User, Tool, HistoryEntry } from '@/types';
+import ToolCard from '@/components/dashboard/ToolCard';
+import ToolContainer from '@/components/tools/ToolContainer';
+import Header from '@/components/dashboard/Header';
 
 interface DashboardProps {
   user: User;

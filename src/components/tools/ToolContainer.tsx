@@ -1,5 +1,5 @@
 import React from 'react';
-import { Tool, HistoryEntry, User } from '../../types';
+import { Tool, HistoryEntry, User } from '@/types';
 
 interface ToolContainerProps {
   tool: Tool;

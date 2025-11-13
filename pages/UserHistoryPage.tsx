@@ -1,6 +1,6 @@
 import React from 'react';
-import { User, HistoryEntry } from '../types';
-import Header from '../components/dashboard/Header';
+import { User, HistoryEntry } from '@/types';
+import Header from '@/components/dashboard/Header';
 
 interface UserHistoryPageProps {
   user: User;

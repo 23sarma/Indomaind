@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { generateVideo } from '../../services/geminiService';
-import Spinner from '../ui/Spinner';
+import { generateVideo } from '@/services/geminiService';
+import Spinner from '@/components/ui/Spinner';
 
 const VideoGenerator: React.FC = () => {
   const [prompt, setPrompt] = useState('');

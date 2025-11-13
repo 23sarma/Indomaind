@@ -1,8 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { sendChatMessage, generateImage } from '../../services/geminiService';
-import { ChatMessage, HistoryEntry, User } from '../../types';
-import Spinner from '../ui/Spinner';
-import { PaperclipIcon, ImageIcon, TrashIcon } from '../icons/toolIcons';
+import { sendChatMessage, generateImage } from '@/services/geminiService';
+import { ChatMessage, HistoryEntry, User } from '@/types';
+import Spinner from '@/components/ui/Spinner';
+import { PaperclipIcon, ImageIcon, TrashIcon } from '@/components/icons/toolIcons';
 
 const MicrophoneIcon: React.FC<{ className?: string }> = ({ className }) => (
   <svg className={className} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">

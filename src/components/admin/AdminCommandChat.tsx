@@ -1,8 +1,7 @@
-
 import React, { useState, useRef, useEffect } from 'react';
-import { HistoryEntry, Tool } from '../../types';
-import { sendAdminCommand } from '../../services/geminiService';
-import Spinner from '../ui/Spinner';
+import { HistoryEntry, Tool } from '@/types';
+import { sendAdminCommand } from '@/services/geminiService';
+import Spinner from '@/components/ui/Spinner';
 
 interface AdminCommandChatProps {
     onToolAdd: (name: string, category: string) => void;

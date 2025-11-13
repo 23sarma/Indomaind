@@ -1,7 +1,6 @@
-
 import React, { useState } from 'react';
-import { User, AuthView } from '../../types';
-import IndomindLogo from '../ui/IndomindLogo';
+import { User, AuthView } from '@/types';
+import IndomindLogo from '@/components/ui/IndomindLogo';
 
 interface LoginProps {
   onLogin: (user: User) => void;

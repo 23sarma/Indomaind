@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { User } from '../../types';
-import IndomindLogo from '../ui/IndomindLogo';
+import { User } from '@/types';
+import IndomindLogo from '@/components/ui/IndomindLogo';
 
 interface HeaderProps {
   user: User;

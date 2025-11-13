@@ -31,6 +31,8 @@ export interface Tool {
 export interface ChatMessage {
     role: 'user' | 'model';
     text: string;
+    // FIX: Add missing imageUrl property to support images in chat.
+    imageUrl?: string;
 }
 
 export interface HistoryEntry {

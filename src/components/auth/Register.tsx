@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { AuthView } from '../../types';
-import IndomindLogo from '../ui/IndomindLogo';
+import { AuthView } from '@/types';
+import IndomindLogo from '@/components/ui/IndomindLogo';
 
 interface RegisterProps {
   onRegister: () => void;

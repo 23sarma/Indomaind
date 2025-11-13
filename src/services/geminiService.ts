@@ -1,5 +1,4 @@
-
-import { ChatMessage, Tool } from '../types';
+import { ChatMessage, Tool } from '@/types';
 
 /**
  * A helper function to call our secure backend API.

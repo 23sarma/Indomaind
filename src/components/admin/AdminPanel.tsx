@@ -1,12 +1,11 @@
-
 import React, { useState } from 'react';
-import { User, Tool, HistoryEntry } from '../../types';
-import Header from '../dashboard/Header';
-import UserManagement from './UserManagement';
-import SelfControlSystem from './SelfControlSystem';
-import ToolManagement from './ToolManagement';
-import AdminCommandChat from './AdminCommandChat';
-import AdminHistoryLog from './AdminHistoryLog';
+import { User, Tool, HistoryEntry } from '@/types';
+import Header from '@/components/dashboard/Header';
+import UserManagement from '@/components/admin/UserManagement';
+import SelfControlSystem from '@/components/admin/SelfControlSystem';
+import ToolManagement from '@/components/admin/ToolManagement';
+import AdminCommandChat from '@/components/admin/AdminCommandChat';
+import AdminHistoryLog from '@/components/admin/AdminHistoryLog';
 
 interface AdminPanelProps {
   user: User;

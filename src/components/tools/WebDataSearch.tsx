@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { generateText } from '../../services/geminiService';
-import Spinner from '../ui/Spinner';
+import { generateText } from '@/services/geminiService';
+import Spinner from '@/components/ui/Spinner';
 
 const WebDataSearch: React.FC = () => {
   const [query, setQuery] = useState('');

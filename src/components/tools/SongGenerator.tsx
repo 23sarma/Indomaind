@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { generateText, generateSpeech } from '../../services/geminiService';
-import Spinner from '../ui/Spinner';
+import { generateText, generateSpeech } from '@/services/geminiService';
+import Spinner from '@/components/ui/Spinner';
 
 // Audio decoding functions from guidelines
 function decode(base64: string): Uint8Array {
