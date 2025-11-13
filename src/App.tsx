@@ -5,8 +5,8 @@ import Register from './components/auth/Register';
 import AdminLogin from './components/auth/AdminLogin';
 import Dashboard from './components/dashboard/Dashboard';
 import AdminPanel from './components/admin/AdminPanel';
-import UserHistoryPage from 'pages/UserHistoryPage';
-import UserProfilePage from 'pages/UserProfilePage';
+import UserHistoryPage from '../pages/UserHistoryPage';
+import UserProfilePage from '../pages/UserProfilePage';
 import { ALL_TOOLS, createActivePlaceholder } from './constants';
 import * as Icons from './components/icons/toolIcons';
 
